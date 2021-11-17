@@ -6,7 +6,7 @@ let fs = require("fs");
 router.get("/", (req, res, next) => {
   fs.readdir("files", (err, dirFiles) => {
     if (err) {
-      res.status(500).send("Error in reading folder");
+      res.status(500).json({ err });
     } else {
       let fileInfos = [];
       files = dirFiles.filter((file) => {
